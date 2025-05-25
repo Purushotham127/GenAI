@@ -1,0 +1,8 @@
+transformers
+torch
+torchaudio
+pyttsx3
+sounddevice
+scipy
+httpx
+openai
