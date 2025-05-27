@@ -3,6 +3,9 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import matplotlib.pyplot as plt
+import os
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Step 1: Data Preparation
 train_datagen = ImageDataGenerator(rescale=1./255)
@@ -21,6 +24,14 @@ val_generator = val_datagen.flow_from_directory(
     batch_size=32,
     class_mode='categorical'
 )
+
+# Print class indices
+class_indices = train_generator.class_indices
+print("Class indices:", class_indices)
+
+# Reverse mapping for predictions
+labels = {v: k for k, v in class_indices.items()}
+print("Reverse mapping of class indices:", labels)
 
 # Step 2: Build the Model
 model = Sequential([
@@ -55,4 +66,8 @@ plt.ylabel('Accuracy')
 plt.show()
 
 # Step 6: Save the Model
-model.save('multi_class_image_classifier.h5')
+model.save('multi_class_image_classifier_1.h5')
+
+val_loss, val_acc = model.evaluate(val_generator)
+print(f"Validation Loss: {val_loss:.4f}")
+print(f"Validation Accuracy: {val_acc:.4f}")

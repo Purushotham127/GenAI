@@ -1,0 +1,553 @@
+
+python3 -m venv ~/virtualEnv
+sesa729255@skd:~ $ python3 -m venv ~/virtualEnv/.vnev
+sesa729255@skd:~ $ source ~/virtualEnv/.vnev/bin//activate
+(.vnev) sesa729255@skd:~ $ python3 -m pip install tflite-runtime
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting tflite-runtime
+  Downloading tflite_runtime-2.14.0-cp311-cp311-manylinux_2_34_aarch64.whl (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 1.0 MB/s eta 0:00:00
+Collecting numpy>=1.23.2
+  Downloading numpy-1.26.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (14.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.2/14.2 MB 1.6 MB/s eta 0:00:00
+Installing collected packages: numpy, tflite-runtime
+Successfully installed numpy-1.26.3 tflite-runtime-2.14.0
+(.vnev) sesa729255@skd:~ $ python3
+Python 3.11.2 (main, Mar 13 2023, 12:18:29) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import tensorflow as tf
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'tensorflow'
+>>> exit()
+(.vnev) sesa729255@skd:~ $ python3
+Python 3.11.2 (main, Mar 13 2023, 12:18:29) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import tflite_runtime.interpreter as tflite
+>>> 
+[2]+  Stopped                 python3
+(.vnev) sesa729255@skd:~ $ pip install tensorflow
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting tensorflow
+  Downloading tensorflow-2.15.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (2.2 kB)
+Collecting tensorflow-cpu-aws==2.15.0
+  Downloading tensorflow_cpu_aws-2.15.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (211.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/211.9 MB 1.6 MB/s eta 0:02:12
+ERROR: Exception:
+Traceback (most recent call last):
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 438, in _error_catcher
+    yield
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 561, in read
+    data = self._fp_read(amt) if not fp_closed else b""
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 527, in _fp_read
+    return self._fp.read(amt) if amt is not None else self._fp.read()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_vendor/cachecontrol/filewrapper.py", line 90, in read
+    data = self.__fp.read(amt)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/http/client.py", line 465, in read
+    s = self.fp.read(amt)
+        ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/ssl.py", line 1278, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/ssl.py", line 1134, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/cli/base_command.py", line 160, in exc_logging_wrapper
+    status = run_func(*args)
+             ^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/cli/req_command.py", line 247, in wrapper
+    return func(self, options, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/commands/install.py", line 419, in run
+    requirement_set = resolver.resolve(
+                      ^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/resolver.py", line 92, in resolve
+    result = self._result = resolver.resolve(
+                            ^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_vendor/resolvelib/resolvers.py", line 481, in resolve
+    state = resolution.resolve(requirements, max_rounds=max_rounds)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_vendor/resolvelib/resolvers.py", line 373, in resolve
+    failure_causes = self._attempt_to_pin_criterion(name)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_vendor/resolvelib/resolvers.py", line 213, in _attempt_to_pin_criterion
+    criteria = self._get_updated_criteria(candidate)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_vendor/resolvelib/resolvers.py", line 204, in _get_updated_criteria
+    self._add_to_criteria(criteria, requirement, parent=candidate)
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_vendor/resolvelib/resolvers.py", line 172, in _add_to_criteria
+    if not criterion.candidates:
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_vendor/resolvelib/structs.py", line 151, in __bool__
+    return bool(self._sequence)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 155, in __bool__
+    return any(self)
+           ^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 143, in <genexpr>
+    return (c for c in iterator if id(c) not in self._incompatible_ids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 47, in _iter_built
+    candidate = func()
+                ^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/factory.py", line 206, in _make_candidate_from_link
+    self._link_candidate_cache[link] = LinkCandidate(
+                                       ^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 297, in __init__
+    super().__init__(
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 162, in __init__
+    self.dist = self._prepare()
+                ^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 231, in _prepare
+    dist = self._prepare_distribution()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 308, in _prepare_distribution
+    return preparer.prepare_linked_requirement(self._ireq, parallel_builds=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/operations/prepare.py", line 491, in prepare_linked_requirement
+    return self._prepare_linked_requirement(req, parallel_builds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/operations/prepare.py", line 536, in _prepare_linked_requirement
+    local_file = unpack_url(
+                 ^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/operations/prepare.py", line 166, in unpack_url
+    file = get_http_url(
+           ^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/operations/prepare.py", line 107, in get_http_url
+    from_path, content_type = download(link, temp_dir.path)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/network/download.py", line 147, in __call__
+    for chunk in chunks:
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/cli/progress_bars.py", line 53, in _rich_progress_bar
+    for chunk in iterable:
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_internal/network/utils.py", line 63, in response_chunks
+    for chunk in response.raw.stream(
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 622, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 560, in read
+    with self._error_catcher():
+  File "/usr/lib/python3.11/contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 443, in _error_catcher
+    raise ReadTimeoutError(self._pool, None, "Read timed out.")
+pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out.
+(.vnev) sesa729255@skd:~ $ pip install tensorflow
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting tensorflow
+  Using cached tensorflow-2.15.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (2.2 kB)
+Collecting tensorflow-cpu-aws==2.15.0
+  Downloading tensorflow_cpu_aws-2.15.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (211.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 211.9/211.9 MB 313.3 kB/s eta 0:00:00
+Collecting absl-py>=1.0.0
+  Downloading https://www.piwheels.org/simple/absl-py/absl_py-2.1.0-py3-none-any.whl (133 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.7/133.7 kB 245.7 kB/s eta 0:00:00
+Collecting astunparse>=1.6.0
+  Downloading https://www.piwheels.org/simple/astunparse/astunparse-1.6.3-py2.py3-none-any.whl (12 kB)
+Collecting flatbuffers>=23.5.26
+  Downloading https://www.piwheels.org/simple/flatbuffers/flatbuffers-20181003210633-py2.py3-none-any.whl (14 kB)
+Collecting gast!=0.5.0,!=0.5.1,!=0.5.2,>=0.2.1
+  Downloading https://www.piwheels.org/simple/gast/gast-0.5.4-py3-none-any.whl (19 kB)
+Collecting google-pasta>=0.1.1
+  Downloading https://www.piwheels.org/simple/google-pasta/google_pasta-0.2.0-py3-none-any.whl (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.5/57.5 kB 602.7 kB/s eta 0:00:00
+Collecting h5py>=2.9.0
+  Downloading h5py-3.10.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (9.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.1/9.1 MB 2.6 MB/s eta 0:00:00
+Collecting libclang>=13.0.0
+  Downloading libclang-16.0.6-1-py2.py3-none-manylinux2014_aarch64.whl (22.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 22.2/22.2 MB 2.2 MB/s eta 0:00:00
+Collecting ml-dtypes~=0.2.0
+  Downloading ml_dtypes-0.2.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (1.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 MB 2.3 MB/s eta 0:00:00
+Requirement already satisfied: numpy<2.0.0,>=1.23.5 in ./virtualEnv/.vnev/lib/python3.11/site-packages (from tensorflow-cpu-aws==2.15.0->tensorflow) (1.26.3)
+Collecting opt-einsum>=2.3.2
+  Downloading https://www.piwheels.org/simple/opt-einsum/opt_einsum-3.3.0-py3-none-any.whl (65 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.5/65.5 kB 232.1 kB/s eta 0:00:00
+Collecting packaging
+  Downloading https://www.piwheels.org/simple/packaging/packaging-23.2-py3-none-any.whl (53 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.0/53.0 kB 814.0 kB/s eta 0:00:00
+Collecting protobuf!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,<5.0.0dev,>=3.20.3
+  Downloading protobuf-4.25.2-cp37-abi3-manylinux2014_aarch64.whl (293 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 293.7/293.7 kB 1.7 MB/s eta 0:00:00
+Requirement already satisfied: setuptools in ./virtualEnv/.vnev/lib/python3.11/site-packages (from tensorflow-cpu-aws==2.15.0->tensorflow) (66.1.1)
+Collecting six>=1.12.0
+  Downloading https://www.piwheels.org/simple/six/six-1.16.0-py2.py3-none-any.whl (11 kB)
+Collecting termcolor>=1.1.0
+  Downloading https://www.piwheels.org/simple/termcolor/termcolor-2.4.0-py3-none-any.whl (7.7 kB)
+Collecting typing-extensions>=3.6.6
+  Downloading https://www.piwheels.org/simple/typing-extensions/typing_extensions-4.9.0-py3-none-any.whl (32 kB)
+Collecting wrapt<1.15,>=1.11.0
+  Downloading wrapt-1.14.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (78 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 1.2 MB/s eta 0:00:00
+Collecting tensorflow-io-gcs-filesystem>=0.23.1
+  Downloading tensorflow_io_gcs_filesystem-0.35.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (3.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 2.6 MB/s eta 0:00:00
+Collecting grpcio<2.0,>=1.24.3
+  Downloading grpcio-1.60.0-cp311-cp311-manylinux_2_17_aarch64.whl (5.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.1/5.1 MB 3.0 MB/s eta 0:00:00
+Collecting tensorboard<2.16,>=2.15
+  Downloading tensorboard-2.15.1-py3-none-any.whl (5.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 2.7 MB/s eta 0:00:00
+Collecting tensorflow-estimator<2.16,>=2.15.0
+  Downloading tensorflow_estimator-2.15.0-py2.py3-none-any.whl (441 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 442.0/442.0 kB 3.0 MB/s eta 0:00:00
+Collecting keras<2.16,>=2.15.0
+  Downloading https://www.piwheels.org/simple/keras/keras-2.15.0-py3-none-any.whl (1.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 917.5 kB/s eta 0:00:00
+WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))': /simple/wheel/
+Collecting wheel<1.0,>=0.23.0
+  Downloading https://www.piwheels.org/simple/wheel/wheel-0.42.0-py3-none-any.whl (65 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.4/65.4 kB 149.7 kB/s eta 0:00:00
+Collecting google-auth<3,>=1.6.3
+  Downloading https://www.piwheels.org/simple/google-auth/google_auth-2.27.0-py2.py3-none-any.whl (186 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 186.8/186.8 kB 215.2 kB/s eta 0:00:00
+Collecting google-auth-oauthlib<2,>=0.5
+  Downloading https://www.piwheels.org/simple/google-auth-oauthlib/google_auth_oauthlib-1.2.0-py2.py3-none-any.whl (23 kB)
+Collecting markdown>=2.6.8
+  Downloading https://www.piwheels.org/simple/markdown/Markdown-3.5.2-py3-none-any.whl (103 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.9/103.9 kB 320.1 kB/s eta 0:00:00
+Collecting protobuf!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,<5.0.0dev,>=3.20.3
+  Downloading protobuf-4.23.4-cp37-abi3-manylinux2014_aarch64.whl (303 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 303.5/303.5 kB 2.1 MB/s eta 0:00:00
+Collecting requests<3,>=2.21.0
+  Downloading https://www.piwheels.org/simple/requests/requests-2.31.0-py3-none-any.whl (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 183.9 kB/s eta 0:00:00
+Collecting tensorboard-data-server<0.8.0,>=0.7.0
+  Downloading tensorboard_data_server-0.7.2-py3-none-any.whl (2.4 kB)
+Collecting werkzeug>=1.0.1
+  Downloading https://www.piwheels.org/simple/werkzeug/werkzeug-3.0.1-py3-none-any.whl (226 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.7/226.7 kB 421.0 kB/s eta 0:00:00
+Collecting cachetools<6.0,>=2.0.0
+  Downloading https://www.piwheels.org/simple/cachetools/cachetools-5.3.2-py3-none-any.whl (9.3 kB)
+Collecting pyasn1-modules>=0.2.1
+  Downloading https://www.piwheels.org/simple/pyasn1-modules/pyasn1_modules-0.3.0-py2.py3-none-any.whl (181 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.3/181.3 kB 492.1 kB/s eta 0:00:00
+Collecting rsa<5,>=3.1.4
+  Downloading rsa-4.9-py3-none-any.whl (34 kB)
+Collecting requests-oauthlib>=0.7.0
+  Downloading https://www.piwheels.org/simple/requests-oauthlib/requests_oauthlib-1.3.1-py2.py3-none-any.whl (28 kB)
+Collecting charset-normalizer<4,>=2
+  Downloading charset_normalizer-3.3.2-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (136 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 136.6/136.6 kB 2.8 MB/s eta 0:00:00
+Collecting idna<4,>=2.5
+  Downloading https://www.piwheels.org/simple/idna/idna-3.6-py3-none-any.whl (61 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.6/61.6 kB 199.3 kB/s eta 0:00:00
+Collecting urllib3<3,>=1.21.1
+  Downloading https://www.piwheels.org/simple/urllib3/urllib3-2.1.0-py3-none-any.whl (104 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 104.6/104.6 kB 335.9 kB/s eta 0:00:00
+Collecting certifi>=2017.4.17
+  Downloading https://www.piwheels.org/simple/certifi/certifi-2023.11.17-py3-none-any.whl (162 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 162.5/162.5 kB 2.7 MB/s eta 0:00:00
+Collecting MarkupSafe>=2.1.1
+  Downloading MarkupSafe-2.1.4-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (29 kB)
+Collecting pyasn1<0.6.0,>=0.4.6
+  Downloading https://www.piwheels.org/simple/pyasn1/pyasn1-0.5.1-py2.py3-none-any.whl (84 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.9/84.9 kB 146.5 kB/s eta 0:00:00
+Collecting oauthlib>=3.0.0
+  Downloading https://www.piwheels.org/simple/oauthlib/oauthlib-3.2.2-py3-none-any.whl (151 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 151.7/151.7 kB 236.1 kB/s eta 0:00:00
+Installing collected packages: libclang, flatbuffers, wrapt, wheel, urllib3, typing-extensions, termcolor, tensorflow-io-gcs-filesystem, tensorflow-estimator, tensorboard-data-server, six, pyasn1, protobuf, packaging, opt-einsum, oauthlib, ml-dtypes, MarkupSafe, markdown, keras, idna, h5py, grpcio, gast, charset-normalizer, certifi, cachetools, absl-py, werkzeug, rsa, requests, pyasn1-modules, google-pasta, astunparse, requests-oauthlib, google-auth, google-auth-oauthlib, tensorboard, tensorflow-cpu-aws, tensorflow
+Successfully installed MarkupSafe-2.1.4 absl-py-2.1.0 astunparse-1.6.3 cachetools-5.3.2 certifi-2023.11.17 charset-normalizer-3.3.2 flatbuffers-20181003210633 gast-0.5.4 google-auth-2.27.0 google-auth-oauthlib-1.2.0 google-pasta-0.2.0 grpcio-1.60.0 h5py-3.10.0 idna-3.6 keras-2.15.0 libclang-16.0.6 markdown-3.5.2 ml-dtypes-0.2.0 oauthlib-3.2.2 opt-einsum-3.3.0 packaging-23.2 protobuf-4.23.4 pyasn1-0.5.1 pyasn1-modules-0.3.0 requests-2.31.0 requests-oauthlib-1.3.1 rsa-4.9 six-1.16.0 tensorboard-2.15.1 tensorboard-data-server-0.7.2 tensorflow-2.15.0 tensorflow-cpu-aws-2.15.0 tensorflow-estimator-2.15.0 tensorflow-io-gcs-filesystem-0.35.0 termcolor-2.4.0 typing-extensions-4.9.0 urllib3-2.1.0 werkzeug-3.0.1 wheel-0.42.0 wrapt-1.14.1
+(.vnev) sesa729255@skd:~ $ python3
+Python 3.11.2 (main, Mar 13 2023, 12:18:29) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import tensorfow as tf
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'tensorfow'
+>>> import keras 
+>>> import tensorfow-2.15.0 as tf
+  File "<stdin>", line 1
+    import tensorfow-2.15.0 as tf
+                    ^
+SyntaxError: invalid syntax
+>>> import keras.imageprocessing from image
+  File "<stdin>", line 1
+    import keras.imageprocessing from image
+                                 ^^^^
+SyntaxError: invalid syntax
+>>> import keras.models
+>>> exit()
+(.vnev) sesa729255@skd:~ $ python3
+Python 3.11.2 (main, Mar 13 2023, 12:18:29) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from tensorflow.keras.layers import  Flatten, Dense, Dropout, BatchNormalization
+>>> from tensorflow.keras.models import Sequential
+>>> from tensorflow.keras.layers import  Activation,Conv2D, MaxPooling2D,GlobalAveragePooling2D
+>>> from tensorflow.keras.preprocessing.image import ImageDataGenerator
+>>> import tensorflow as tf
+>>> print("TensorFlow version:", tf.__version__)
+TensorFlow version: 2.15.0
+>>> exit()
+
+(.vnev) sesa729255@skd:~ $ 
+(.vnev) sesa729255@skd:~ $ pwd
+/home/sesa729255
+(.vnev) sesa729255@skd:~ $ gedit test.py
+bash: gedit: command not found
+(.vnev) sesa729255@skd:~ $ touch test.py
+(.vnev) sesa729255@skd:~ $ gedit test.py
+bash: gedit: command not found
+(.vnev) sesa729255@skd:~ $ python3 test.py
+TensorFlow version: 2.15.0
+(.vnev) sesa729255@skd:~ $ mkdir dataset
+(.vnev) sesa729255@skd:~ $ cd dataset
+(.vnev) sesa729255@skd:~/dataset $ mkdir train && mkdir test
+(.vnev) sesa729255@skd:~/dataset $ cd train
+(.vnev) sesa729255@skd:~/dataset/train $ mkdir baban && mkdir chanakya
+(.vnev) sesa729255@skd:~/dataset/train $ mkdir purushotham
+(.vnev) sesa729255@skd:~/dataset/train $ cd ..
+(.vnev) sesa729255@skd:~/dataset $ cd test && mkdir baban
+(.vnev) sesa729255@skd:~/dataset/test $ ls
+baban
+(.vnev) sesa729255@skd:~/dataset/test $ mkdir chanakya
+(.vnev) sesa729255@skd:~/dataset/test $ mkdir purushotham
+(.vnev) sesa729255@skd:~/dataset/test $ cd ..
+(.vnev) sesa729255@skd:~/dataset $ ls
+test  train
+(.vnev) sesa729255@skd:~/dataset $ cd ..
+(.vnev) sesa729255@skd:~ $ ls
+Bookshelf  dataset  Desktop  Documents  Downloads  Facerecognition.h5  Music  name11.jpg  name11.jpg-20240130T050113Z-001  Pictures  Public  rpi  Templates  test.py  Videos  virtualEnv
+(.vnev) sesa729255@skd:~ $ python3 test.py
+Traceback (most recent call last):
+  File "/home/sesa729255/test.py", line 18, in <module>
+    upload()
+  File "/home/sesa729255/test.py", line 11, in upload
+    test_image = image.load_img(mypath, target_size=(128, 128))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/keras/src/utils/image_utils.py", line 414, in load_img
+    raise ImportError(
+ImportError: Could not import PIL.Image. The use of `load_img` requires PIL.
+(.vnev) sesa729255@skd:~ $ geany
+(.vnev) sesa729255@skd:~ $ geany test.py
+(.vnev) sesa729255@skd:~ $ python3 test.py
+Traceback (most recent call last):
+  File "/home/sesa729255/test.py", line 18, in <module>
+    upload()
+  File "/home/sesa729255/test.py", line 11, in upload
+    test_image = image.load_img(mypath, target_size=(128, 128))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/keras/src/utils/image_utils.py", line 414, in load_img
+    raise ImportError(
+ImportError: Could not import PIL.Image. The use of `load_img` requires PIL.
+(.vnev) sesa729255@skd:~ $ python3 test.py
+Traceback (most recent call last):
+  File "/home/sesa729255/test.py", line 3, in <module>
+    from keras.preprocessing.image import image
+ImportError: cannot import name 'image' from 'keras.preprocessing.image' (/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/keras/preprocessing/image/__init__.py)
+(.vnev) sesa729255@skd:~ $ python3 test.py
+Traceback (most recent call last):
+  File "/home/sesa729255/test.py", line 19, in <module>
+    upload()
+  File "/home/sesa729255/test.py", line 12, in upload
+    test_image = load_img(mypath, target_size=(128, 128))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/keras/src/utils/image_utils.py", line 414, in load_img
+    raise ImportError(
+ImportError: Could not import PIL.Image. The use of `load_img` requires PIL.
+(.vnev) sesa729255@skd:~ $ python3 test.py
+Traceback (most recent call last):
+  File "/home/sesa729255/test.py", line 19, in <module>
+    upload()
+  File "/home/sesa729255/test.py", line 12, in upload
+    test_image = load_img(mypath)
+                 ^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/keras/src/utils/image_utils.py", line 414, in load_img
+    raise ImportError(
+ImportError: Could not import PIL.Image. The use of `load_img` requires PIL.
+(.vnev) sesa729255@skd:~ $ python3 test.py
+Traceback (most recent call last):
+  File "/home/sesa729255/test.py", line 3, in <module>
+    from PIL.image import load_img
+ModuleNotFoundError: No module named 'PIL'
+(.vnev) sesa729255@skd:~ $ python3
+Python 3.11.2 (main, Mar 13 2023, 12:18:29) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> pip install pillow
+  File "<stdin>", line 1
+    pip install pillow
+        ^^^^^^^
+SyntaxError: invalid syntax
+>>> 
+[3]+  Stopped                 python3
+(.vnev) sesa729255@skd:~ $ pip install pillow
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting pillow
+  Downloading pillow-10.2.0-cp311-cp311-manylinux_2_28_aarch64.whl (4.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 1.9 MB/s eta 0:00:00
+Installing collected packages: pillow
+Successfully installed pillow-10.2.0
+(.vnev) sesa729255@skd:~ $ python3 test.py
+Traceback (most recent call last):
+  File "/home/sesa729255/test.py", line 20, in <module>
+    upload()
+  File "/home/sesa729255/test.py", line 13, in upload
+    test_image = Image.load_img(mypath)
+                 ^^^^^^^^^^^^^^
+AttributeError: module 'PIL.Image' has no attribute 'load_img'
+(.vnev) sesa729255@skd:~ $ python3 test.py
+Traceback (most recent call last):
+  File "/home/sesa729255/test.py", line 20, in <module>
+    upload()
+  File "/home/sesa729255/test.py", line 13, in upload
+    test_image = Image.load(mypath)
+                 ^^^^^^^^^^
+AttributeError: module 'PIL.Image' has no attribute 'load'
+(.vnev) sesa729255@skd:~ $ python3 test.py
+Traceback (most recent call last):
+  File "/home/sesa729255/test.py", line 20, in <module>
+    upload()
+  File "/home/sesa729255/test.py", line 16, in upload
+    result = new_model.predict(test_image)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/tmp/__autograph_generated_filekb95niop.py", line 15, in tf__predict_function
+    retval_ = ag__.converted_call(ag__.ld(step_function), (ag__.ld(self), ag__.ld(iterator)), None, fscope)
+    ^^^^^
+ValueError: in user code:
+
+    File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/keras/src/engine/training.py", line 2440, in predict_function  *
+        return step_function(self, iterator)
+    File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/keras/src/engine/training.py", line 2425, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/keras/src/engine/training.py", line 2413, in run_step  **
+        outputs = model.predict_step(data)
+    File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/keras/src/engine/training.py", line 2381, in predict_step
+        return self(x, training=False)
+    File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/keras/src/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential_12" is incompatible with the layer: expected shape=(None, 128, 128, 3), found shape=(None, 480, 640, 3)
+
+(.vnev) sesa729255@skd:~ $ python3 test.py
+Traceback (most recent call last):
+  File "/home/sesa729255/test.py", line 20, in <module>
+    upload()
+  File "/home/sesa729255/test.py", line 13, in upload
+    test_image = Image.open(mypath,target=(128,128))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: open() got an unexpected keyword argument 'target'
+(.vnev) sesa729255@skd:~ $ python3 test.py
+  File "/home/sesa729255/test.py", line 14
+    test_image.thumbnail((128,128))
+TabError: inconsistent use of tabs and spaces in indentation
+(.vnev) sesa729255@skd:~ $ python3 test.py
+  File "/home/sesa729255/test.py", line 14
+    test_image.thumbnail(128,128S
+TabError: inconsistent use of tabs and spaces in indentation
+(.vnev) sesa729255@skd:~ $ python3 test.py
+  File "/home/sesa729255/test.py", line 14
+    test_image.thumbnail(128,128)
+TabError: inconsistent use of tabs and spaces in indentation
+(.vnev) sesa729255@skd:~ $ python3 test.py
+Traceback (most recent call last):
+  File "/home/sesa729255/test.py", line 21, in <module>
+    upload()
+  File "/home/sesa729255/test.py", line 14, in upload
+    test_image.thumbnail(128,128)
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/PIL/Image.py", line 2590, in thumbnail
+    provided_size = tuple(map(math.floor, size))
+                          ^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'int' object is not iterable
+(.vnev) sesa729255@skd:~ $ python3 test.py
+Traceback (most recent call last):
+  File "/home/sesa729255/test.py", line 21, in <module>
+    upload()
+  File "/home/sesa729255/test.py", line 14, in upload
+    print(test_image.thumbnail(128,128))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/PIL/Image.py", line 2590, in thumbnail
+    provided_size = tuple(map(math.floor, size))
+                          ^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'int' object is not iterable
+(.vnev) sesa729255@skd:~ $ python3 test.py
+(640, 480)
+(100, 75)
+(.vnev) sesa729255@skd:~ $ python3 test.py
+(640, 480)
+(128, 96)
+(.vnev) sesa729255@skd:~ $ python3 test.py
+(640, 480)
+(128, 128)
+(.vnev) sesa729255@skd:~ $ python3 test.py
+Traceback (most recent call last):
+  File "/home/sesa729255/test.py", line 21, in <module>
+    upload()
+  File "/home/sesa729255/test.py", line 14, in upload
+    print(test_image=test_image.resize(128,128))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/PIL/Image.py", line 2156, in resize
+    raise ValueError(msg)
+ValueError: Unknown resampling filter (128). Use Image.Resampling.NEAREST (0), Image.Resampling.LANCZOS (1), Image.Resampling.BILINEAR (2), Image.Resampling.BICUBIC (3), Image.Resampling.BOX (4) or Image.Resampling.HAMMING (5)
+(.vnev) sesa729255@skd:~ $ python3 test.py
+Traceback (most recent call last):
+  File "/home/sesa729255/test.py", line 21, in <module>
+    upload()
+  File "/home/sesa729255/test.py", line 14, in upload
+    test_image=test_image.resize(128,128)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/PIL/Image.py", line 2156, in resize
+    raise ValueError(msg)
+ValueError: Unknown resampling filter (128). Use Image.Resampling.NEAREST (0), Image.Resampling.LANCZOS (1), Image.Resampling.BILINEAR (2), Image.Resampling.BICUBIC (3), Image.Resampling.BOX (4) or Image.Resampling.HAMMING (5)
+(.vnev) sesa729255@skd:~ $ python3 test.py
+1/1 [==============================] - 2s 2s/step
+baban
+(.vnev) sesa729255@skd:~ $ python3 test.py
+1/1 [==============================] - 2s 2s/step
+baban
+(.vnev) sesa729255@skd:~ $ geany test.py
+(.vnev) sesa729255@skd:~ $ ls
+Bookshelf  data  dataset  Desktop  Documents  Downloads  Facerecognition.h5  Music  name11.jpg  name11.jpg-20240130T050113Z-001  Pictures  Public  rpi  Templates  test.py  Videos  virtualEnv
+(.vnev) sesa729255@skd:~ $ cd Downloads
+(.vnev) sesa729255@skd:~/Downloads $ ls
+bcm2711-rpi-4-b.dtb  detection.txt  Facerecognition.h5  name11.jpg-20240130T050113Z-001.zip  tensorflow_facial_recognition.zip  train_test.py
+(.vnev) sesa729255@skd:~/Downloads $ geany train_test.py
+(.vnev) sesa729255@skd:~/Downloads $ cd ..
+(.vnev) sesa729255@skd:~ $ ls
+Bookshelf  data  dataset  Desktop  Documents  Downloads  Facerecognition.h5  Music  name11.jpg  name11.jpg-20240130T050113Z-001  Pictures  Public  rpi  Templates  test.py  Videos  virtualEnv
+(.vnev) sesa729255@skd:~ $ geany train.py
+(.vnev) sesa729255@skd:~ $ ls
+Bookshelf  data  dataset  Desktop  Documents  Downloads  Facerecognition.h5  Music  name11.jpg  name11.jpg-20240130T050113Z-001  Pictures  Public  rpi  Templates  test.py  train.py  Videos  virtualEnv
+(.vnev) sesa729255@skd:~ $ python3 train.py
+Found 300 images belonging to 3 classes.
+Found 75 images belonging to 3 classes.
+Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/mobilenet/mobilenet_1_0_128_tf_no_top.h5
+17225924/17225924 [==============================] - 357s 21us/step
+Traceback (most recent call last):
+  File "/home/sesa729255/train.py", line 30, in <module>
+    history=model.fit(train_generator,epochs=50,validation_data=test_generator)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/sesa729255/virtualEnv/.vnev/lib/python3.11/site-packages/keras/src/preprocessing/image.py", line 2526, in apply_affine_transform
+    if scipy is None:
+       ^^^^^
+NameError: name 'scipy' is not defined
+(.vnev) sesa729255@skd:~ $ pip install sciipy
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+ERROR: Could not find a version that satisfies the requirement sciipy (from versions: none)
+ERROR: No matching distribution found for sciipy
+(.vnev) sesa729255@skd:~ $ pip install scipy
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting scipy
+  Downloading scipy-1.12.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (34.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 34.7/34.7 MB 23.3 kB/s eta 0:00:00
+Requirement already satisfied: numpy<1.29.0,>=1.22.4 in ./virtualEnv/.vnev/lib/python3.11/site-packages (from scipy) (1.26.3)
+Installing collected packages: scipy
+Successfully installed scipy-1.12.0
+(.vnev) sesa729255@skd:~ $ 
+
