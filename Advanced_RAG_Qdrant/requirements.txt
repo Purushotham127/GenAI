@@ -1,0 +1,9 @@
+streamlit
+langchain
+langchain-community
+docx2txt
+langchain_text_splitters
+torch
+torchvision
+qdrant_client
+sentence-transformers
