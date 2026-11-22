@@ -1,0 +1,6 @@
+metrics.db
+metrics.db-shm
+metrics.db-wal
+metrics.sqlite3
+metrics.sqlite3-shm
+metrics.sqlite3-wal

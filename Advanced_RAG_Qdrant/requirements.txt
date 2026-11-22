@@ -10,4 +10,7 @@ torchvision
 qdrant_client
 sentence-transformers
 langchain-ollama
+langchain-openai
 docling
+docling-slim[format-pdf-docling]
+fastembed

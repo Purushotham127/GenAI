@@ -1,0 +1,7 @@
+litellm[proxy]>=1.89,<2
+langfuse>=4.7,<5
+pandas>=2.0
+prometheus-client>=0.20
+pyyaml>=6.0
+requests>=2.31
+streamlit>=1.40

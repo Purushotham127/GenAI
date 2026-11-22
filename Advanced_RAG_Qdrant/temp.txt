@@ -1,0 +1,150 @@
+2026-11-22 22:02:02 | INFO     | App | streamlit_data_handler.py:27 | Processing file 1 : Resume.pdf
+2026-11-22 22:02:02 | INFO     | App | dev_decorators.py:11 |  handle_pdf started at 2026-11-22 22:02:02.613718
+2026-11-22 22:02:03 | INFO     | App | dev_decorators.py:18 | handle_pdf completed at 2026-11-22 22:02:03.489172 | latency = 876.29 ms
+2026-11-22 22:02:03 | INFO     | App | dev_decorators.py:11 |  handle_docling_doc started at 2026-11-22 22:02:03.490183
+2026-11-22 22:02:03 | INFO     | App | dev_decorators.py:18 | handle_docling_doc completed at 2026-11-22 22:02:03.958897 | latency = 468.70 ms
+2026-11-22 22:02:03 | ERROR    | App | streamlit_data_handler.py:48 | Exception occured in handling uploading files method : The 'docling-parse' package is required to parse PDF files with this backend. Install it with `pip install 'docling-slim[format-pdf-docling]'`.
+Traceback (most recent call last):
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\backend\docling_parse_backend.py", line 43, in <module>
+    from docling_parse.pdf_parser import (
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling_parse\pdf_parser.py", line 44, in <module>
+    from docling_parse.pdf_parsers import (  # type: ignore[import]
+ImportError: DLL load failed while importing pdf_parsers: An Application Control policy has blocked this file.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\Utils\streamlit_data_handler.py", line 37, in handle_uploaded_files
+    handle_docling_doc(tmp_filepath)
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\Utils\dev_decorators.py", line 14, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\Utils\data_util.py", line 12, in handle_docling_doc
+    doc_data = docling_converter.convert(filepath)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\pydantic\_internal\_validate_call.py", line 40, in wrapper_function
+    return wrapper(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\pydantic\_internal\_validate_call.py", line 137, in __call__
+    res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\document_converter.py", line 770, in convert
+    first_result = next(all_res, None)
+                   ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\document_converter.py", line 850, in convert_all
+    for conv_res in conv_res_iter:
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\document_converter.py", line 965, in _convert
+    for input_batch in chunkify(
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\utils\utils.py", line 19, in chunkify
+    for first in iterator:  # Take the first element from the iterator
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\datamodel\document.py", line 890, in docs
+    yield InputDocument(
+          ^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\datamodel\document.py", line 200, in __init__
+    self._init_doc(backend, path_or_stream)
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\datamodel\document.py", line 320, in _init_doc
+    self._backend = backend(self, path_or_stream=path_or_stream)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\backend\docling_parse_backend.py", line 354, in __init__
+    raise ImportError(_INSTALL_HINT) from _DOCLING_PARSE_IMPORT_ERROR
+ImportError: The 'docling-parse' package is required to parse PDF files with this backend. Install it with `pip install 'docling-slim[format-pdf-docling]'`.
+2026-11-22 22:05:04 | INFO     | App | streamlit_data_handler.py:27 | Processing file 1 : Resume.pdf
+2026-11-22 22:05:04 | INFO     | App | dev_decorators.py:11 |  handle_pdf started at 2026-11-22 22:05:04.137523
+2026-11-22 22:05:04 | INFO     | App | dev_decorators.py:18 | handle_pdf completed at 2026-11-22 22:05:04.880276 | latency = 743.31 ms
+2026-11-22 22:05:04 | INFO     | App | dev_decorators.py:11 |  handle_docling_doc started at 2026-11-22 22:05:04.880276
+2026-11-22 22:05:05 | INFO     | App | dev_decorators.py:18 | handle_docling_doc completed at 2026-11-22 22:05:05.334316 | latency = 452.83 ms
+2026-11-22 22:05:05 | ERROR    | App | streamlit_data_handler.py:48 | Exception occured in handling uploading files method : The 'docling-parse' package is required to parse PDF files with this backend. Install it with `pip install 'docling-slim[format-pdf-docling]'`.
+Traceback (most recent call last):
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\backend\docling_parse_backend.py", line 43, in <module>
+    from docling_parse.pdf_parser import (
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling_parse\pdf_parser.py", line 44, in <module>
+    from docling_parse.pdf_parsers import (  # type: ignore[import]
+ImportError: DLL load failed while importing pdf_parsers: An Application Control policy has blocked this file.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\Utils\streamlit_data_handler.py", line 37, in handle_uploaded_files
+    handle_docling_doc(tmp_filepath)
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\Utils\dev_decorators.py", line 14, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\Utils\data_util.py", line 12, in handle_docling_doc
+    doc_data = docling_converter.convert(filepath)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\pydantic\_internal\_validate_call.py", line 40, in wrapper_function
+    return wrapper(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\pydantic\_internal\_validate_call.py", line 137, in __call__
+    res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\document_converter.py", line 770, in convert
+    first_result = next(all_res, None)
+                   ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\document_converter.py", line 850, in convert_all
+    for conv_res in conv_res_iter:
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\document_converter.py", line 965, in _convert
+    for input_batch in chunkify(
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\utils\utils.py", line 19, in chunkify
+    for first in iterator:  # Take the first element from the iterator
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\datamodel\document.py", line 890, in docs
+    yield InputDocument(
+          ^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\datamodel\document.py", line 200, in __init__
+    self._init_doc(backend, path_or_stream)
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\datamodel\document.py", line 320, in _init_doc
+    self._backend = backend(self, path_or_stream=path_or_stream)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\backend\docling_parse_backend.py", line 354, in __init__
+    raise ImportError(_INSTALL_HINT) from _DOCLING_PARSE_IMPORT_ERROR
+ImportError: The 'docling-parse' package is required to parse PDF files with this backend. Install it with `pip install 'docling-slim[format-pdf-docling]'`.
+2026-11-22 22:09:01 | INFO     | App | streamlit_data_handler.py:27 | Processing file 1 : Resume.pdf
+2026-11-22 22:09:01 | INFO     | App | dev_decorators.py:11 |  handle_pdf started at 2026-11-22 22:09:01.494564
+2026-11-22 22:09:02 | INFO     | App | dev_decorators.py:18 | handle_pdf completed at 2026-11-22 22:09:02.285685 | latency = 791.12 ms
+2026-11-22 22:09:02 | INFO     | App | dev_decorators.py:11 |  handle_docling_doc started at 2026-11-22 22:09:02.285685
+2026-11-22 22:09:02 | INFO     | App | dev_decorators.py:18 | handle_docling_doc completed at 2026-11-22 22:09:02.779195 | latency = 493.29 ms
+2026-11-22 22:09:02 | ERROR    | App | streamlit_data_handler.py:48 | Exception occured in handling uploading files method : The 'docling-parse' package is required to parse PDF files with this backend. Install it with `pip install 'docling-slim[format-pdf-docling]'`.
+Traceback (most recent call last):
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\backend\docling_parse_backend.py", line 43, in <module>
+    from docling_parse.pdf_parser import (
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling_parse\pdf_parser.py", line 44, in <module>
+    from docling_parse.pdf_parsers import (  # type: ignore[import]
+ImportError: DLL load failed while importing pdf_parsers: An Application Control policy has blocked this file.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\Utils\streamlit_data_handler.py", line 37, in handle_uploaded_files
+    handle_docling_doc(tmp_filepath)
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\Utils\dev_decorators.py", line 14, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\Utils\data_util.py", line 12, in handle_docling_doc
+    doc_data = docling_converter.convert(filepath)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\pydantic\_internal\_validate_call.py", line 40, in wrapper_function
+    return wrapper(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\pydantic\_internal\_validate_call.py", line 137, in __call__
+    res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\document_converter.py", line 770, in convert
+    first_result = next(all_res, None)
+                   ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\document_converter.py", line 850, in convert_all
+    for conv_res in conv_res_iter:
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\document_converter.py", line 965, in _convert
+    for input_batch in chunkify(
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\utils\utils.py", line 19, in chunkify
+    for first in iterator:  # Take the first element from the iterator
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\datamodel\document.py", line 890, in docs
+    yield InputDocument(
+          ^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\datamodel\document.py", line 200, in __init__
+    self._init_doc(backend, path_or_stream)
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\datamodel\document.py", line 320, in _init_doc
+    self._backend = backend(self, path_or_stream=path_or_stream)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\purus\codebase\Advanced_RAG_project\GenAI\Advanced_RAG_Qdrant\rag_venv\Lib\site-packages\docling\backend\docling_parse_backend.py", line 354, in __init__
+    raise ImportError(_INSTALL_HINT) from _DOCLING_PARSE_IMPORT_ERROR
+ImportError: The 'docling-parse' package is required to parse PDF files with this backend. Install it with `pip install 'docling-slim[format-pdf-docling]'`.

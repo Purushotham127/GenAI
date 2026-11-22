@@ -2,7 +2,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from transformers import AutoTokenizer
 from sentence_transformers import SentenceTransformer, CrossEncoder
 from fastembed import SparseTextEmbedding
-from langchain_ollama import ChatOllama
+from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 import os
@@ -22,6 +22,14 @@ SPARSE_EMBEDDING_MODEL = os.environ['SPARSE_EMBEDDING_MODEL']
 RERANKER_MODEL = os.environ['RERANKER_MODEL']
 LLM_MODEL_TEMPERATURE = float(os.environ['LLM_MODEL_TEMPERATURE'])
 LLM_MODEL_NAME = os.environ['LLM_MODEL_NAME']
+MONITORING_MODEL = os.getenv("MONITORING_MODEL", LLM_MODEL_NAME)
+LITELLM_API_BASE = os.getenv("LITELLM_API_BASE", "http://127.0.0.1:4000").rstrip("/")
+LITELLM_MASTER_KEY = os.getenv("LITELLM_MASTER_KEY")
+
+if not LITELLM_MASTER_KEY:
+    raise RuntimeError(
+        "The LiteLLM monitoring proxy is not configured. Start the application with main.py."
+    )
 
 def load_model_with_fallback(loader, model_name, **kwargs):
     """Load from the local cache if present; otherwise download once so later runs use the cache.
@@ -38,9 +46,13 @@ reranker_model = load_model_with_fallback(CrossEncoder, RERANKER_MODEL)
 
 tokenizer = load_model_with_fallback(AutoTokenizer.from_pretrained, TOKENIZER_MODEL)
 
-llm = ChatOllama(
-    model=LLM_MODEL_NAME,
-    temperature=LLM_MODEL_TEMPERATURE
+llm = ChatOpenAI(
+    model=MONITORING_MODEL,
+    base_url=f"{LITELLM_API_BASE}/v1",
+    api_key=LITELLM_MASTER_KEY,
+    default_headers={"X-Request-Source": "rag-app"},
+    temperature=LLM_MODEL_TEMPERATURE,
+    streaming=True,
 )
 
 system_prompt = """
